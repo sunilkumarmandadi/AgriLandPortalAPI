@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\fonts\Flaticon.svg" />
+    <None Include="wwwroot\assets\fonts\Flaticon.woff2" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\assets\fonts\font\Flaticon.svg" />
+    <None Include="wwwroot\assets\fonts\font\Flaticon.woff2" />
+    <None Include="wwwroot\assets\fonts\font\_flaticon.scss" />
+    <None Include="wwwroot\assets\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\assets\fonts\slick.svg" />
+    <None Include="wwwroot\assets\js\ace-responsive-menu.js" />
+    <None Include="wwwroot\assets\js\bootstrap-select.min.js" />
+    <None Include="wwwroot\assets\js\bootstrap.min.js" />
+    <None Include="wwwroot\assets\js\chart-custome.js" />
+    <None Include="wwwroot\assets\js\chart.min.js" />
+    <None Include="wwwroot\assets\js\dashboard-script.js" />
+    <None Include="wwwroot\assets\js\google-maps.js" />
+    <None Include="wwwroot\assets\js\googlemaps1.js" />
+    <None Include="wwwroot\assets\js\googlemaps2.js" />
+    <None Include="wwwroot\assets\js\isotop.js" />
+    <None Include="wwwroot\assets\js\jquery-3.3.1.js" />
+    <None Include="wwwroot\assets\js\jquery-migrate-3.0.0.min.js" />
+    <None Include="wwwroot\assets\js\jquery-scrolltofixed-min.js" />
+    <None Include="wwwroot\assets\js\jquery-ui.min.js" />
+    <None Include="wwwroot\assets\js\jquery.counterup.js" />
+    <None Include="wwwroot\assets\js\jquery.mmenu.all.js" />
+    <None Include="wwwroot\assets\js\parallax-new.js" />
+    <None Include="wwwroot\assets\js\parallax.js" />
+    <None Include="wwwroot\assets\js\popper.min.js" />
+    <None Include="wwwroot\assets\js\progressbar.js" />
+    <None Include="wwwroot\assets\js\script.js" />
+    <None Include="wwwroot\assets\js\scrollto.js" />
+    <None Include="wwwroot\assets\js\simplebar.js" />
+    <None Include="wwwroot\assets\js\single-counter.js" />
+    <None Include="wwwroot\assets\js\slider.js" />
+    <None Include="wwwroot\assets\js\smartuploader.js" />
+    <None Include="wwwroot\assets\js\snackbar.min.js" />
+    <None Include="wwwroot\assets\js\tagsinput.js" />
+    <None Include="wwwroot\assets\js\timepicker.js" />
+    <None Include="wwwroot\assets\js\utils.js" />
+    <None Include="wwwroot\assets\js\wow.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GitHub" Version="1.30.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
+  </ItemGroup>
+
+</Project>
