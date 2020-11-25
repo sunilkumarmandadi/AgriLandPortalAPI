@@ -22,8 +22,8 @@ namespace AgriLandPortalAPI.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("server=aws-db-agriland.cm8iqe38wuws.us-east-1.rds.amazonaws.com;database=agriland;uid=mysqladmin;pwd=Sunanj224;convert zero datetime=True", x => x.ServerVersion("8.0.20-mysql"));
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                
             }
         }
 
