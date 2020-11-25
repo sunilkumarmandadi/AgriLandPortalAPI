@@ -23,7 +23,7 @@ namespace AgriLandPortalAPI.Controllers
 
         public IActionResult Index()
         {
-           // var s = dBContext.Users.ToList();
+           // var s = dBContext.Users.ToList();//
             return View();
         }
 
