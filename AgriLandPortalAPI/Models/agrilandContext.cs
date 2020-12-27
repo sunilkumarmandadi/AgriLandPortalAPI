@@ -16,6 +16,7 @@ namespace AgriLandPortalAPI.Models
         }
         public virtual DbSet<UserTypes> UserTypes { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Login> UserLogin { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
