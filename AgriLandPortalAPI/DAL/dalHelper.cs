@@ -1,4 +1,6 @@
 ﻿using AgriLandPortalAPI.Models;
+using Microsoft.EntityFrameworkCore;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +23,7 @@ namespace AgriLandPortalAPI.DAL
 
         public void Dispose()
         {
-            
+
         }
 
         public void InsertUser(Users registration)
@@ -44,6 +46,52 @@ namespace AgriLandPortalAPI.DAL
                     context.Users.Add(usr);
                     context.SaveChanges();
                 }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool CheckIfEmailExists(string email)
+        {
+            try
+            {
+                using (var context = new agrilandContext())
+                {
+
+                    if (context.Users.Any(x => x.Email == email))
+                        return true;
+                    else
+                        return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public Login UserLogin(string username)
+        {
+            try
+            {
+                Login login = new Login();
+                using (var context = new agrilandContext())
+                {
+
+                    var u_id = new MySqlParameter("@u_id", username);
+                   // var u_password = new MySqlParameter("@password", password);
+
+                    login = context
+                                  .UserLogin
+                                  .FromSqlRaw("CALL user_login(@u_id)", parameters: new[] { u_id })
+                                  .AsEnumerable().FirstOrDefault();
+
+                }
+                return login;
 
             }
             catch (Exception ex)

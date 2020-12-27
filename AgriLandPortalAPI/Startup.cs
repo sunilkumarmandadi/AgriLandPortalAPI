@@ -11,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+
 
 namespace AgriLandPortalAPI
 {
@@ -29,6 +31,16 @@ namespace AgriLandPortalAPI
             services.AddControllersWithViews();
             services.AddDbContext<agrilandContext>(o => o.UseMySql(Configuration.GetConnectionString("agrilandDb")));
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "MyAPI",
+                    Description = "Testing"
+                });
+            });
+
             services.AddCors(c =>
             {
                 c.AddPolicy("AllowOrigin", options => options.WithOrigins("http://localhost:4200"));
@@ -38,10 +50,17 @@ namespace AgriLandPortalAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "AgriLandAPI");
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                
+
             }
             else
             {
@@ -73,7 +92,7 @@ namespace AgriLandPortalAPI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=User}/{action=Test}/{id?}");
             });
         }
     }
