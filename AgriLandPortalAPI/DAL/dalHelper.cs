@@ -83,7 +83,6 @@ namespace AgriLandPortalAPI.DAL
                 {
 
                     var u_id = new MySqlParameter("@u_id", username);
-                   // var u_password = new MySqlParameter("@password", password);
 
                     login = context
                                   .UserLogin
@@ -92,6 +91,55 @@ namespace AgriLandPortalAPI.DAL
 
                 }
                 return login;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void PostLandDetails(LandDetails land)
+        {
+            try
+            {
+                
+                using (var context = new agrilandContext())
+                {
+
+                    var u_id = new MySqlParameter("@u_id", land.UserId);
+                    var tittle = new MySqlParameter("@tittle", land.Tittle);
+                    var description = new MySqlParameter("@description", land.Description);
+                    var is_Lease = new MySqlParameter("@is_Lease", land.IsLease);
+                    var is_Sell = new MySqlParameter("@is_Sell", land.IsSell);
+                    var is_Watersource = new MySqlParameter("@is_Watersource", land.IsWatersource);
+                    var waterSource_Type = new MySqlParameter("@waterSource_Type", land.WaterSourceType);
+                    var landTypeId = new MySqlParameter("@landTypeId", land.LandTypeId);
+                    var totalArea = new MySqlParameter("@totalArea", land.TotalArea);
+                    var unitsOfMeasure = new MySqlParameter("@unitsOfMeasure", land.UnitsOfMeasure);
+                    var price = new MySqlParameter("@price", land.Price);
+                    var priceType = new MySqlParameter("@priceType", land.PriceType);
+                    var address1 = new MySqlParameter("@address1", land.Address1);
+                    var village = new MySqlParameter("@village", land.Village);
+                    var city = new MySqlParameter("@city", land.City);
+                    var state = new MySqlParameter("@state", land.State);
+                    var zip = new MySqlParameter("@zip", land.Zip);
+                    var name = new MySqlParameter("@name", land.Name);
+                    var mobile = new MySqlParameter("@mobile", land.Mobile);
+                    var email = new MySqlParameter("@email", land.Email);
+                    var createdOn = new MySqlParameter("@createdOn", land.CreatedOn);
+                    var updatedOn = new MySqlParameter("@updatedOn", land.UpdatedOn);
+
+                    var s = context
+                                  .PostLandDetails
+                                  .FromSqlRaw("CALL insert_landDetails(@user_Id,@tittle,@description,@is_Lease,@is_Sell,@is_Watersource,@waterSource_Type,@landTypeId,@totalArea,@unitsOfMeasure,@price,@priceType,@address1," +
+                                  "@village,@city,@state,@zip,@name,@mobile,@email,@createdOn,@updatedOn)",
+                                                parameters: new[] { u_id, tittle,description,is_Lease,is_Sell,is_Watersource,
+                                                            waterSource_Type,landTypeId,totalArea,unitsOfMeasure,price,priceType,address1,village,city,state,zip,name,mobile,email,createdOn,updatedOn});
+                                  
+
+                }
+                
 
             }
             catch (Exception ex)

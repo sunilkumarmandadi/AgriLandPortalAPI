@@ -5,6 +5,11 @@ namespace AgriLandPortalAPI.Models
 {
     public partial class Users
     {
+        public Users()
+        {
+            LandDetails = new HashSet<LandDetails>();
+        }
+
         public int UserId { get; set; }
         public string UserName { get; set; }
         public int? UserType { get; set; }
@@ -16,5 +21,6 @@ namespace AgriLandPortalAPI.Models
         public DateTime? UpdatedOn { get; set; }
 
         public virtual UserTypes UserTypeNavigation { get; set; }
+        public virtual ICollection<LandDetails> LandDetails { get; set; }
     }
 }
